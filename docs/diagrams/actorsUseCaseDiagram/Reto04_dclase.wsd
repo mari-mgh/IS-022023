@@ -1,0 +1,36 @@
+@startuml DClass_Reto04
+abstract class Persona{
+    #nombre: string
+    #telefono: string
+    #direccion: string
+}
+
+class Equipo{
+    -nombre: string
+    -registro: string
+}
+
+class Jugador{
+    -numero: int
+    -posicion: string
+    -capitan: bool
+}
+
+class Entrenador{
+    -nivel_acreditacion: int
+    -anos_exp: int
+}
+
+class Juego{
+    -localidad: string
+    -puntuacion: int
+}
+
+
+Jugador -up-|> Persona
+Entrenador -up-|> Persona
+
+Jugador "6..20"-down-*"  1" Equipo
+Entrenador "1"--o "1..*" Equipo : tiene
+
+Equipo "2"--"1" Juego : compiten
