@@ -1,0 +1,16 @@
+@startuml diagrama cxomuni
+
+rectangle Registro
+rectangle Venta
+rectangle CatalogoProductos
+rectangle EspecificacionProducto
+
+skinparam linetype ortho
+
+Registro --> CatalogoProductos : 1:create() \n5:getEspecificacion()
+Registro --> Venta : 2:create() \n 7:crearLineaVenta()
+Venta -- Venta : 3:createfechahora() \n 4:createlineasVenta()
+Registro --> EspecificacionProducto : 6:create()
+
+
+@enduml
